@@ -1,0 +1,22 @@
+{
+  "name": "brandwatch-api",
+  "version": "0.1.0",
+  "description": "nodejs client for the Brandwatch API",
+  "main": "brandwatchApi.js",
+  "scripts": {
+    "test": "jshint . && mocha"
+  },
+  "author": "Brandwatch Ltd",
+  "license": "MIT",
+  "devDependencies": {
+    "expectations": "^0.2.5",
+    "jshint": "^2.5.1",
+    "mocha": "^1.20.1",
+    "sinon": "^1.10.2"
+  },
+  "dependencies": {
+    "request": "^2.36.0",
+    "underscore": "^1.6.0",
+    "winston": "^0.7.3"
+  }
+}
