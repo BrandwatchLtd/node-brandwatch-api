@@ -8,13 +8,13 @@
   "author": "Brandwatch Ltd",
   "license": "MIT",
   "devDependencies": {
-    "expectations": "^0.2.5",
+    "expectations": "^0.5.1",
     "jshint": "^2.5.1",
-    "mocha": "^1.20.1",
+    "mocha": "^2.2.5",
     "sinon": "^1.10.2"
   },
   "dependencies": {
-    "debug": "^1.0.2",
+    "debug": "^2.2.0",
     "request": "^2.36.0",
     "underscore": "^1.6.0"
   }
