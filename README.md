@@ -1,7 +1,7 @@
 node-brandwatch-api
 ===================
 
-Really, really simple NodeJS wrapper for the Brandwatch API that wraps [request](https://github.com/request/request).
+Really, really simple NodeJS wrapper for the Brandwatch API that wraps [request](https://github.com/request/request). [![Build Status](https://travis-ci.org/BrandwatchLtd/node-brandwatch-api.svg?branch=master)](https://travis-ci.org/BrandwatchLtd/node-brandwatch-api)
 
 ## Usage
 
