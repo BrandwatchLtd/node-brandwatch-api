@@ -7,10 +7,10 @@ Really, really simple NodeJS wrapper for the Brandwatch API that wraps [request]
 
 ```javascript
 var BrandwatchAPI = require('brandwatch-api').BrandwatchAPI,
-    api = new BrandwatchAPI({apiHost: 'newapi.brandwatch.com', apiPort: 80}, {
+    api = new BrandwatchAPI({apiUrl: 'http://newapi.brandwatch.com:80'}, {
         auth: access_token
     });
-    
+
 // "api" is a wrapped request object
 api.get('/user', function(err, res, body){
 });
