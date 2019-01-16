@@ -1,6 +1,6 @@
 {
   "name": "brandwatch-api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "nodejs client for the Brandwatch API",
   "scripts": {
     "test": "jshint . && mocha"
