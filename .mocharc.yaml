@@ -1,0 +1,4 @@
+recursive: true
+require: 'expectations'
+timeout: 10000
+exit: true
