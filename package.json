@@ -8,7 +8,7 @@
   "author": "Brandwatch Ltd",
   "license": "MIT",
   "devDependencies": {
-    "expectations": "^0.6.0",
+    "expectations": "^1.0.0",
     "jshint": "^2.5.1",
     "mocha": "^2.2.5",
     "sinon": "^1.10.2"
