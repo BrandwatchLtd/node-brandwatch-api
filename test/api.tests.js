@@ -112,7 +112,7 @@ describe('brandwatchApi', function(){
         });
     });
 
-    describe('using the new aipUrl param', function () {
+    describe('using the apiUrl param', function () {
         var brandwatchApi;
 
         beforeEach(function(){
