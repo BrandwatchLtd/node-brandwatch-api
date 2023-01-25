@@ -2,6 +2,7 @@
     "evil": true,
     "devel": false,
     "node": true,
+    "esversion": 6,
 
     "strict": true,
     "globalstrict": true,
