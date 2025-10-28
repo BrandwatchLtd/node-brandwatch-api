@@ -4,15 +4,18 @@
   "description": "nodejs client for the Brandwatch API",
   "scripts": {
     "lint": "jshint .",
-    "test": "mocha"
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "coverage": "vitest run --coverage"
   },
   "author": "Brandwatch Ltd",
   "license": "MIT",
   "devDependencies": {
     "expectations": "^1.0.0",
     "jshint": "^2.5.1",
-    "mocha": "^10.0.0",
-    "sinon": "^1.10.2"
+    "sinon": "^1.10.2",
+    "vitest": "^1.0.1",
+    "@vitest/coverage-v8": "^1.0.1"
   },
   "engines": {
     "node": ">=24.0.0"
