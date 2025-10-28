@@ -13,7 +13,6 @@
   "devDependencies": {
     "expectations": "^1.0.0",
     "jshint": "^2.5.1",
-    "sinon": "^1.10.2",
     "vitest": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1"
   },
