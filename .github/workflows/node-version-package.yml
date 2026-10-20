@@ -1,0 +1,56 @@
+name: Version and publish Node package
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionPolicy:
+        description: Version increment to apply before publishing
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  version:
+    if: github.ref == 'refs/heads/master'
+    runs-on: bw-dc-small
+    steps:
+      - name: Get repository write token
+        uses: brandwatch/bw-workflow-actions/steps/generic/get-repo-write-token@production
+        with:
+          BWBOT_BRANDWATCHLTD_GITHUB_TOKEN: ${{ secrets.BWBOT_BRANDWATCHLTD_GITHUB_TOKEN }}
+
+      - name: Check out master
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+          token: ${{ env.GITHUB_COMMIT_TOKEN }}
+
+      - name: Set up Node
+        uses: brandwatch/bw-workflow-actions/steps/node/setup-environment@production
+        with:
+          artifactory-pwd: ${{ secrets.ARTIFACTORY_GITHUB_ACTIONS_USER_KEY || secrets.BRANDWATCH_ARTIFACTORY_PASSWORD }}
+          node-version: '24'
+          package-manager: npm
+
+      - name: Bump package version and create tag
+        id: semantic-version
+        uses: brandwatch/bw-workflow-actions/steps/node/semantic-version@production
+        with:
+          github-token: ${{ env.GITHUB_COMMIT_TOKEN }}
+          package-manager: npm
+          version-scope: root
+          versionPolicy: ${{ inputs.versionPolicy }}
+
+      - name: Start package publishing on new tag
+        env:
+          GH_TOKEN: ${{ env.GITHUB_COMMIT_TOKEN }}
+          VERSION: ${{ steps.semantic-version.outputs.release-version }}
+        run: gh workflow run .github/workflows/node-publish-package.yml --ref "$VERSION" -f version="$VERSION"

@@ -1,0 +1,26 @@
+name: Publish Node package
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to publish from the matching git tag
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: brandwatch/bw-workflow-actions/.github/workflows/node-deploy-package.yaml@production
+    with:
+      version: ${{ inputs.version || github.event.release.tag_name }}
+      node-version: '24'
+      package-manager: npm
+      build-step: true
+      test: true
+      linter: false
+    secrets: inherit

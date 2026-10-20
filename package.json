@@ -2,20 +2,31 @@
   "name": "brandwatch-api",
   "version": "0.4.0",
   "description": "nodejs client for the Brandwatch API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "jshint . && mocha"
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .js,.mjs,.ts",
+    "test": "npm run lint && npm run build && node --test",
+    "prepublishOnly": "npm run build"
   },
   "author": "Brandwatch Ltd",
   "license": "MIT",
   "devDependencies": {
-    "expectations": "^1.0.0",
-    "jshint": "^2.5.1",
-    "mocha": "^10.0.0",
-    "sinon": "^1.10.2"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.72.0"
   },
   "dependencies": {
-    "debug": "^4.3.4",
-    "request": "^2.36.0",
-    "underscore": "^1.6.0"
+    "axios": "^1.13.0"
   }
 }

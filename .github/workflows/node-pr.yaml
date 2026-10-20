@@ -1,0 +1,18 @@
+name: Node - Pull Request
+
+on:
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  build:
+    uses: brandwatch/bw-workflow-actions/.github/workflows/node-pull-request.yaml@production
+    with:
+      node-version: '24'
+      test: true
+      linter: false
+    secrets: inherit
